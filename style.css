@@ -1,0 +1,184 @@
+/* =========================
+   Florentis Brand Variables
+========================= */
+:root{
+  --fl-navy:   #27537a;   /* primary */
+  --fl-navy-d: #172830;   /* darker navy */
+  --fl-green:  #596c10;   /* accent green */
+  --fl-green-l:#acae6e;   /* lighter green */
+  --fl-beige:  #f1e5da;   /* soft beige */
+  --fl-yellow: #f4d488;   /* highlight */
+  --fl-ring:   rgba(39, 83, 122, 0.35);
+}
+
+/* =========================
+   Shared Buttons
+========================= */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.btn:focus { box-shadow: 0 0 0 3px var(--fl-ring); }
+
+.btn--primary {
+  background: var(--fl-navy);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--fl-navy-d); }
+
+/* Paragraph / Check Answers button (solid Florentis green) */
+.btn--paragraph {
+  background: var(--fl-green);
+  color: #fff;
+  border: none;
+}
+.btn--paragraph:hover {
+  background: var(--fl-green-l);
+  color: var(--fl-navy-d);
+}
+
+.btn--dark {
+  background: #4b5563;
+  color: #fff;
+}
+.btn--dark:hover { background: #374151; }
+
+.btn--ghost {
+  background: var(--fl-beige);
+  color: var(--fl-navy-d);
+  border: 1px solid #e5e7eb;
+}
+.btn--ghost:hover { background: #e8dacd; }
+
+/* =========================
+   Activity Tabs (brand)
+========================= */
+.tab-btn {
+  flex: 1 1 0;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.75rem;
+  font-weight: 800;
+  border: 2px solid transparent;
+  background: #fff;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+.tab-btn:focus { outline: none; box-shadow: 0 0 0 3px var(--fl-ring); }
+
+.tab-btn--quiz { border-color: #cfe0ec; }
+.tab-btn--quiz:hover { background: #f3f7fb; }
+
+.tab-btn--paragraph { border-color: #e3e7c9; }
+.tab-btn--paragraph:hover { background: #fbf9ec; }
+
+.tab-btn.is-active.tab-btn--quiz {
+  background: linear-gradient(135deg, var(--fl-navy), var(--fl-navy-d));
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(23, 40, 48, 0.25);
+}
+.tab-btn.is-active.tab-btn--paragraph {
+  background: linear-gradient(135deg, var(--fl-green), var(--fl-green-l));
+  color: #101418;
+  box-shadow: 0 8px 18px rgba(89, 108, 16, 0.2);
+}
+
+/* =========================
+   MCQ Options
+========================= */
+.option-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #d1d5db;
+  text-align: left;
+  color: #1f2937;
+  background: #fff;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.option-btn:hover { background: #f9fafb; }
+.option-btn:disabled { opacity: 0.9; cursor: not-allowed; }
+
+.option-btn.correct {
+  background-color: #f7fbe9;         /* pale green */
+  border-color: var(--fl-green);
+  color: var(--fl-green);
+  font-weight: 700;
+}
+.option-btn.incorrect {
+  background-color: #fff3f3;
+  border-color: #ef4444;
+  color: #991b1b;
+  font-weight: 700;
+}
+
+/* =========================
+   Gap-fill Inputs + Chips
+========================= */
+.blank-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.gap-input {
+  width: 110px;
+  padding: 0.25rem 0.4rem;
+  border-bottom: 3px solid #d1d5db;
+  text-align: center;
+  color: var(--fl-navy-d);
+  font-weight: 700;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.gap-input:focus { border-color: var(--fl-navy); }
+
+.gap-input.correct {
+  background: #f7fbe9;              /* soft green success */
+  border-color: var(--fl-green);
+}
+.gap-input.incorrect {
+  background: #fff3f3;
+  border-color: #ef4444;
+}
+
+.blank-mark {
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  line-height: 1.1;
+  font-size: 0.9rem;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.blank-mark.ok {
+  color: var(--fl-green);
+  border-color: var(--fl-green);
+}
+.blank-mark.no {
+  color: #991b1b;
+  border-color: #ef4444;
+}
+
+/* Word bank chips */
+#word-bank button {
+  background: var(--fl-yellow);
+  color: var(--fl-navy-d);
+  border: 1px solid #ead38f;
+}
+#word-bank button:hover {
+  filter: brightness(0.95);
+}
+
+/* Utility */
+.hidden { display: none !important; }
