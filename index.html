@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B2 Vocabulary Quiz</title>
+  <!-- Tailwind (CDN utilities only) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl w-full max-w-2xl mx-auto">
+
+    <!-- Tabs -->
+    <div class="mb-6">
+      <nav class="p-1 bg-gray-100 rounded-lg flex gap-1" aria-label="Tabs">
+        <button id="tab-quiz" class="tab-btn tab-btn--quiz is-active" type="button" aria-controls="quiz-activity" aria-selected="true">
+          🧠 Multiple Choice
+        </button>
+        <button id="tab-paragraph" class="tab-btn tab-btn--paragraph" type="button" aria-controls="paragraph-activity" aria-selected="false">
+          ✍️ Gap-Fill Paragraph
+        </button>
+      </nav>
+    </div>
+
+    <!-- Activity 1: Multiple Choice Quiz -->
+    <section id="quiz-activity" role="tabpanel" aria-labelledby="tab-quiz">
+      <div id="quiz-container">
+        <div class="mb-6">
+          <p id="question-number" class="text-sm font-semibold text-emerald-600 mb-2">Question 1 / 20</p>
+          <h2 id="question-text" class="text-xl sm:text-2xl font-bold text-gray-900">Loading question...</h2>
+        </div>
+
+        <div id="options-container" class="space-y-3"></div>
+
+        <div id="feedback-container" class="mt-6 min-h-[6rem]">
+          <p id="feedback-text" class="text-lg font-semibold"></p>
+          <p id="definition-text" class="text-gray-700 mt-2"></p>
+        </div>
+
+        <button id="next-btn"
+          class="mt-4 w-full btn btn--primary"
+          disabled>
+          Next
+        </button>
+      </div>
+
+      <div id="score-container" class="hidden text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Quiz Completed!</h2>
+        <p id="score-text" class="text-xl text-gray-700 mb-8">Your final score is 0 / 20</p>
+        <button id="restart-btn" class="w-full btn btn--primary">
+          Restart Quiz
+        </button>
+      </div>
+    </section>
+
+    <!-- Activity 2: Paragraph Gap-Fill -->
+    <section id="paragraph-activity" class="hidden" role="tabpanel" aria-labelledby="tab-paragraph">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Activity 2: The Mystery of Oakwood Manor</h2>
+      <p class="text-gray-700 mb-4">
+        Read the story and fill in the blanks using the words from the word bank. Type your answers in the boxes.
+      </p>
+
+      <!-- Word Bank -->
+      <div id="word-bank" class="flex flex-wrap gap-2 p-4 bg-gray-50 rounded-lg mb-6"></div>
+
+      <!-- Paragraph -->
+      <div id="paragraph-container" class="space-y-4 text-lg leading-relaxed">
+        <p>
+          It all started when we found the old map. It showed a house in the
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="suburb" aria-label="blank 1" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          that was supposedly abandoned. We biked there, past the familiar
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="landscape" aria-label="blank 2" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          of our town, until we reached a creepy old gate. The house had a
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="distinctive" aria-label="blank 3" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          broken tower. Was it a
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="signal" aria-label="blank 4" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          to stay away? We ignored it. Inside, it was clear no one had been there for years, but we felt a strange
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="conflict" aria-label="blank 5" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          between excitement and fear. A faded sign on the wall said, “This property is
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="officially" aria-label="blank 6" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          closed.” It seemed someone had tried to
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="enforce" aria-label="blank 7" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          this rule, but failed. We heard a noise upstairs. It didn’t
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="threaten" aria-label="blank 8" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          us, exactly… but it was weird. I tried to
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="capture" aria-label="blank 9" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          the dusty room with my phone camera when a real-estate agent walked in! “This house has a special
+          <span class="blank-wrap">
+            <input type="text" class="gap-input" data-answers="status" aria-label="blank 10" />
+            <span class="blank-mark" aria-hidden="true"></span>
+          </span>
+          in this town,” she said, not angrily. “But it’s not safe. Come on, I’ll tell you the real story.”
+        </p>
+      </div>
+
+      <!-- Feedback & Buttons -->
+      <p id="paragraph-feedback" class="mt-6 text-lg font-semibold text-center min-h-[2rem]" aria-live="polite"></p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <button id="check-paragraph-btn" class="btn btn--paragraph w-full">Check Answers</button>
+        <button id="reveal-paragraph-btn" class="btn btn--ghost w-full">Show Answers</button>
+        <button id="reset-paragraph-btn" class="btn btn--dark w-full">Try Again</button>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
