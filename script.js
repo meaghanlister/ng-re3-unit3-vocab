@@ -1,6 +1,7 @@
 /* =========================
    DATA
 ========================= */
+<script>
 const quizData = [
   { question: "The photographer managed to ___ the fleeting moment of joy on the child's face.",
     options: ["capture", "grasp", "signal", "drag"],
@@ -335,3 +336,5 @@ shuffleArray(quizData);
 loadQuestion();
 populateWordBank();
 setActiveTab('quiz');
+
+</script>
